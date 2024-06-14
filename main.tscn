@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dyx250qan0oow"]
+[gd_scene load_steps=8 format=3 uid="uid://dyx250qan0oow"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_vigct"]
 [ext_resource type="Script" path="res://scripts/Character.gd" id="2_02k76"]
@@ -6,19 +6,28 @@
 [ext_resource type="Script" path="res://scripts/ViewWindow.gd" id="3_wte82"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j73b5"]
+size = Vector2(125, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umkqy"]
+size = Vector2(11.75, 639)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gl0ki"]
+size = Vector2(1149, 2)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_vigct")
 
-[node name="Character" type="Node2D" parent="."]
+[node name="Monke" type="Node2D" parent="."]
+position = Vector2(691, 155)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Character"]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Monke"]
 script = ExtResource("2_02k76")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Character/CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Monke/CharacterBody2D"]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_j73b5")
 
-[node name="Sprite2D" type="Sprite2D" parent="Character/CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Monke/CharacterBody2D"]
 texture = ExtResource("3_p52q8")
 
 [node name="Window" type="Window" parent="."]
@@ -30,3 +39,35 @@ transparent = true
 script = ExtResource("3_wte82")
 
 [node name="Camera2D" type="Camera2D" parent="Window"]
+
+[node name="wallx1" type="StaticBody2D" parent="."]
+position = Vector2(7, 325)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wallx1"]
+position = Vector2(-3, -2)
+shape = SubResource("RectangleShape2D_umkqy")
+debug_color = Color(0.886275, 0.192157, 0.662745, 0.419608)
+
+[node name="wallx2" type="StaticBody2D" parent="."]
+position = Vector2(1151, 321)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wallx2"]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_umkqy")
+debug_color = Color(0.886275, 0.192157, 0.662745, 0.419608)
+
+[node name="wally1" type="StaticBody2D" parent="."]
+position = Vector2(546, 658)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wally1"]
+position = Vector2(33.5, -9)
+shape = SubResource("RectangleShape2D_gl0ki")
+debug_color = Color(0.654902, 0.517647, 0, 0.419608)
+
+[node name="wally2" type="StaticBody2D" parent="."]
+position = Vector2(549, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wally2"]
+position = Vector2(33.5, -9)
+shape = SubResource("RectangleShape2D_gl0ki")
+debug_color = Color(0.654902, 0.517647, 0, 0.419608)
