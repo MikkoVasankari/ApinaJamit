@@ -34,10 +34,10 @@ func _physics_process(delta):
 		position.x -= speed * delta
 		Sprite.flip_h = true
 			
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("ui_up"):
 		position.y -= speed * delta
 		
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("ui_down"):
 		position.y += speed * delta
 	
 	move_and_slide()
