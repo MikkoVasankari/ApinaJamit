@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dyx250qan0oow"]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_vigct"]
+[ext_resource type="Script" path="res://scripts/Character.gd" id="2_02k76"]
+[ext_resource type="Texture2D" uid="uid://3p7swc7jj80v" path="res://assets/monke.png" id="3_p52q8"]
+[ext_resource type="Script" path="res://scripts/ViewWindow.gd" id="3_wte82"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j73b5"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_vigct")
+
+[node name="Character" type="Node2D" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Character"]
+script = ExtResource("2_02k76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character/CharacterBody2D"]
+shape = SubResource("RectangleShape2D_j73b5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Character/CharacterBody2D"]
+texture = ExtResource("3_p52q8")
+
+[node name="Window" type="Window" parent="."]
+transparent_bg = true
+mode = 3
+unresizable = true
+borderless = true
+transparent = true
+script = ExtResource("3_wte82")
+
+[node name="Camera2D" type="Camera2D" parent="Window"]
