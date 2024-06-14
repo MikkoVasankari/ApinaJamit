@@ -22,7 +22,6 @@ func _input(event):
 		if event.keycode == KEY_E:
 			monkeySound.play(0)
 		
-
 func _physics_process(delta):
 	
 	if Input.is_action_pressed("ui_right"):
