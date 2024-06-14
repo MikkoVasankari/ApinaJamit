@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @onready var timer: Timer = $Timer
 @onready var Sprite = $Sprite2D
+@onready var monkeySound = $AudioStreamPlayer2D
 
 func _ready():
 	# Assuming the Timer node is a child of the current node
@@ -12,10 +13,14 @@ func _ready():
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_T:
-			timer.start(2.0) 
+			timer.start(2.0)
 			Sprite.set_rotation(-45)
 			await timer.timeout
 			Sprite.set_rotation(0)
+			
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_E:
+			monkeySound.play(0)
 		
 
 func _physics_process(delta):
