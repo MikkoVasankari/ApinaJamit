@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=3 uid="uid://w3q5m7w4upsh"]
+
+[ext_resource type="Texture2D" uid="uid://cqx67krpafcj8" path="res://assets/menu/menuscreendark.png" id="1_evk3s"]
+[ext_resource type="Script" path="res://options.gd" id="1_wd5pn"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+script = ExtResource("1_wd5pn")
+
+[node name="Menuscreendark" type="Sprite2D" parent="."]
+position = Vector2(952, 538)
+scale = Vector2(0.855556, 0.855556)
+texture = ExtResource("1_evk3s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -610.0
+offset_top = -502.0
+offset_right = -134.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+theme_override_constants/separation = 40
+
+[node name="Master" type="HSlider" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+theme_override_constants/grabber_offset = 0
+rounded = true
+
+[node name="Label" type="Label" parent="VBoxContainer/Master"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -238.0
+offset_right = 238.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Master volume"
+horizontal_alignment = 1
+
+[node name="Music" type="HSlider" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+theme_override_constants/grabber_offset = 0
+rounded = true
+
+[node name="Label" type="Label" parent="VBoxContainer/Music"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -238.0
+offset_right = 238.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Music volume"
+horizontal_alignment = 1
+
+[node name="Effects" type="HSlider" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+theme_override_constants/grabber_offset = 0
+rounded = true
+
+[node name="Label" type="Label" parent="VBoxContainer/Effects"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -238.0
+offset_right = 238.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Effects volume"
+horizontal_alignment = 1
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Save and exit"
+
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_button_pressed"]

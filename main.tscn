@@ -21,16 +21,12 @@ position = Vector2(5877, -33)
 scale = Vector2(1, 1.00764)
 texture = ExtResource("3_n3d8j")
 
-[node name="TreesAndPoles" type="Sprite2D" parent="."]
-position = Vector2(5127, 334)
-texture = ExtResource("4_idsjo")
-
 [node name="Ferriswheel" type="Sprite2D" parent="."]
 position = Vector2(5132, 342)
 texture = ExtResource("3_jj06y")
 
 [node name="Bricks" type="Sprite2D" parent="."]
-position = Vector2(5740, -2)
+position = Vector2(5740, 3)
 texture = ExtResource("7_c6kfm")
 
 [node name="Ferriswheelcarts" type="Sprite2D" parent="."]
@@ -44,6 +40,10 @@ texture = ExtResource("6_gbd7t")
 [node name="BricksWithFence" type="Sprite2D" parent="."]
 position = Vector2(5592, -36)
 texture = ExtResource("8_opq8l")
+
+[node name="TreesAndPoles" type="Sprite2D" parent="."]
+position = Vector2(5128, 350)
+texture = ExtResource("4_idsjo")
 
 [node name="Monke" type="Node2D" parent="."]
 position = Vector2(510, 405)
@@ -68,5 +68,6 @@ rotation_smoothing_speed = 1.0
 
 [node name="Timer" type="Timer" parent="Monke/CharacterBody2D"]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Monke/CharacterBody2D"]
+[node name="MonkeySound" type="AudioStreamPlayer2D" parent="Monke/CharacterBody2D"]
 stream = ExtResource("10_ommsj")
+bus = &"Effects"
