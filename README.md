@@ -2,5 +2,5 @@
 
 Hahmoa voi ohjailla perus nuolinäppäimille
 
-T = Keulii <br>
+SHIFT = Keulii <br>
 E = Apina ääniä

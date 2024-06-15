@@ -1,22 +1,27 @@
 extends CharacterBody2D
 
-@export var speed = 400
+@export var speed = 280
 
 @onready var timer: Timer = $Timer
 @onready var Sprite = $Sprite2D
-@onready var monkeySound = $AudioStreamPlayer2D
+@onready var monkeySound = $MonkeySound
 
 func _ready():
 	# Assuming the Timer node is a child of the current node
 	timer.one_shot = true
 
+func reset_speed():
+	speed = 280
+
 func _input(event):
 	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_T:
-			timer.start(2.0)
+		if event.keycode == KEY_SHIFT:
+			timer.start(0.5)
+			speed = 200
 			Sprite.set_rotation(-45)
 			await timer.timeout
 			Sprite.set_rotation(0)
+			reset_speed()
 			
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_E:

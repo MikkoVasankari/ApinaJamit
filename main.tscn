@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dyx250qan0oow"]
+[gd_scene load_steps=19 format=3 uid="uid://dyx250qan0oow"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody.gd" id="2_erlyp"]
 [ext_resource type="Texture2D" uid="uid://dtm7jf80lw6hn" path="res://assets/monke.png" id="2_siswo"]
@@ -12,8 +12,26 @@
 [ext_resource type="AudioStream" uid="uid://bhutw2wtn6r6x" path="res://assets/Monkey - Sound Effect [_bmcwEK4a1A].mp3" id="10_ommsj"]
 [ext_resource type="PackedScene" uid="uid://bsne21eliuuvs" path="res://pause_menu.tscn" id="12_ai0yg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j73b5"]
-size = Vector2(94.125, 88)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fxec4"]
+radius = 14.0191
+height = 88.0498
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dfw18"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hf677"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k1qoi"]
+normal = Vector2(0, 1)
+distance = 15.5242
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjju8"]
+size = Vector2(13.2446, 28.1406)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_53ner"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_luyhr"]
+size = Vector2(108, 23)
 
 [node name="Main" type="Node"]
 
@@ -21,47 +39,53 @@ size = Vector2(94.125, 88)
 position = Vector2(5877, -33)
 scale = Vector2(1, 1.00764)
 texture = ExtResource("3_n3d8j")
+metadata/_edit_lock_ = true
 
 [node name="Ferriswheel" type="Sprite2D" parent="."]
 position = Vector2(5132, 342)
 texture = ExtResource("3_jj06y")
-
-[node name="Bricks" type="Sprite2D" parent="."]
-position = Vector2(5740, 3)
-texture = ExtResource("7_c6kfm")
+metadata/_edit_lock_ = true
 
 [node name="Ferriswheelcarts" type="Sprite2D" parent="."]
 position = Vector2(5135, 338)
 texture = ExtResource("9_050vd")
+metadata/_edit_lock_ = true
 
 [node name="BuildingBackground" type="Sprite2D" parent="."]
 position = Vector2(5132, 340)
 texture = ExtResource("6_gbd7t")
+metadata/_edit_lock_ = true
 
 [node name="BricksWithFence" type="Sprite2D" parent="."]
 position = Vector2(5592, -36)
 texture = ExtResource("8_opq8l")
+metadata/_edit_lock_ = true
 
 [node name="TreesAndPoles" type="Sprite2D" parent="."]
 position = Vector2(5128, 350)
 texture = ExtResource("4_idsjo")
+metadata/_edit_lock_ = true
 
 [node name="Monke" type="Node2D" parent="."]
 position = Vector2(510, 405)
+metadata/_edit_lock_ = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Monke"]
 script = ExtResource("2_erlyp")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Monke/CharacterBody2D"]
-shape = SubResource("RectangleShape2D_j73b5")
 
 [node name="Sprite2D" type="Sprite2D" parent="Monke/CharacterBody2D"]
 position = Vector2(0, -1)
 scale = Vector2(0.485156, 0.506098)
 texture = ExtResource("2_siswo")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Monke/CharacterBody2D"]
+position = Vector2(-1, 24)
+rotation = 1.57725
+shape = SubResource("CapsuleShape2D_fxec4")
+
 [node name="Camera2D" type="Camera2D" parent="Monke/CharacterBody2D"]
-position = Vector2(88, -77)
+zoom = Vector2(2.5, 2.5)
+limit_left = 50
 position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 rotation_smoothing_enabled = true
@@ -74,149 +98,159 @@ position = Vector2(-1, 0)
 stream = ExtResource("10_ommsj")
 bus = &"Effects"
 
-metadata/_edit_lock_ = true
-
 [node name="Bricks" type="Sprite2D" parent="."]
-position = Vector2(5739, -10)
+position = Vector2(5740, 3)
 texture = ExtResource("7_c6kfm")
 metadata/_edit_lock_ = true
-
-[node name="WorldBoundryLeft" type="StaticBody2D" parent="."]
-position = Vector2(34, 402)
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundryLeft"]
-shape = SubResource("WorldBoundaryShape2D_ayi2r")
-metadata/_edit_lock_ = true
-
-[node name="WorldBoundryBottom" type="StaticBody2D" parent="."]
-position = Vector2(636, 517)
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundryBottom"]
-shape = SubResource("WorldBoundaryShape2D_r73un")
-
-[node name="WorldBoundryTop" type="StaticBody2D" parent="."]
-position = Vector2(392, 339)
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundryTop"]
-shape = SubResource("WorldBoundaryShape2D_hre5y")
-
-[node name="LightpoleColliders" type="StaticBody2D" parent="."]
-metadata/_edit_lock_ = true
-
-[node name="Pole1" type="CollisionShape2D" parent="LightpoleColliders"]
-position = Vector2(123, 330.25)
-shape = SubResource("RectangleShape2D_hj4cf")
-
-[node name="Pole2" type="CollisionShape2D" parent="LightpoleColliders"]
-position = Vector2(1668, 331)
-shape = SubResource("RectangleShape2D_hj4cf")
-
-[node name="Pole3" type="CollisionShape2D" parent="LightpoleColliders"]
-position = Vector2(3106, 330)
-shape = SubResource("RectangleShape2D_hj4cf")
-
-[node name="Pole4" type="CollisionShape2D" parent="LightpoleColliders"]
-position = Vector2(4236, 330)
-shape = SubResource("RectangleShape2D_hj4cf")
-
-[node name="Pole5" type="CollisionShape2D" parent="LightpoleColliders"]
-position = Vector2(6245, 330)
-shape = SubResource("RectangleShape2D_hj4cf")
-
-[node name="Pole6" type="CollisionShape2D" parent="LightpoleColliders"]
-position = Vector2(7663, 333)
-shape = SubResource("RectangleShape2D_hj4cf")
-
-[node name="Pole7" type="CollisionShape2D" parent="LightpoleColliders"]
-position = Vector2(9079, 330)
-shape = SubResource("RectangleShape2D_hj4cf")
-
-[node name="Pole8" type="CollisionShape2D" parent="LightpoleColliders"]
-position = Vector2(9990, 330)
-shape = SubResource("RectangleShape2D_hj4cf")
-
-[node name="TreeColliders" type="StaticBody2D" parent="."]
-metadata/_edit_lock_ = true
-
-[node name="Tree1" type="CollisionShape2D" parent="TreeColliders"]
-position = Vector2(519, 333)
-shape = SubResource("CapsuleShape2D_b78ty")
-
-[node name="Tree2" type="CollisionShape2D" parent="TreeColliders"]
-position = Vector2(719, 335)
-shape = SubResource("CapsuleShape2D_b78ty")
-
-[node name="Tree3" type="CollisionShape2D" parent="TreeColliders"]
-position = Vector2(2157, 331)
-shape = SubResource("CapsuleShape2D_b78ty")
-
-[node name="tree4" type="CollisionShape2D" parent="TreeColliders"]
-position = Vector2(3716, 332)
-shape = SubResource("CapsuleShape2D_b78ty")
-
-[node name="tree5" type="CollisionShape2D" parent="TreeColliders"]
-position = Vector2(3855, 334)
-shape = SubResource("CapsuleShape2D_b78ty")
-
-[node name="tree6" type="CollisionShape2D" parent="TreeColliders"]
-position = Vector2(3986, 335)
-shape = SubResource("CapsuleShape2D_b78ty")
-
-[node name="tree7" type="CollisionShape2D" parent="TreeColliders"]
-position = Vector2(5441, 334)
-shape = SubResource("CapsuleShape2D_b78ty")
-
-[node name="tree8" type="CollisionShape2D" parent="TreeColliders"]
-position = Vector2(6827, 335)
-shape = SubResource("CapsuleShape2D_b78ty")
-
-[node name="tree9" type="CollisionShape2D" parent="TreeColliders"]
-position = Vector2(6941, 335)
-shape = SubResource("CapsuleShape2D_b78ty")
-
-[node name="tree10" type="CollisionShape2D" parent="TreeColliders"]
-position = Vector2(8543, 334)
-shape = SubResource("CapsuleShape2D_b78ty")
-
-[node name="tree11" type="CollisionShape2D" parent="TreeColliders"]
-position = Vector2(8685, 331)
-shape = SubResource("CapsuleShape2D_b78ty")
-
-[node name="tree12" type="CollisionShape2D" parent="TreeColliders"]
-position = Vector2(9814, 334)
-shape = SubResource("CapsuleShape2D_b78ty")
-
-[node name="BenchColliders" type="StaticBody2D" parent="."]
-metadata/_edit_lock_ = true
-
-[node name="bench1" type="CollisionShape2D" parent="BenchColliders"]
-position = Vector2(921, 353)
-rotation = -3.14159
-scale = Vector2(6.00586, 3.75195)
-shape = SubResource("RectangleShape2D_d2p6t")
-
-[node name="bench2" type="CollisionShape2D" parent="BenchColliders"]
-position = Vector2(1093, 353)
-rotation = -3.14159
-scale = Vector2(6.00586, 3.75195)
-shape = SubResource("RectangleShape2D_d2p6t")
-
-[node name="bench3" type="CollisionShape2D" parent="BenchColliders"]
-position = Vector2(4084, 354)
-rotation = -3.14159
-scale = Vector2(6.00586, 3.75195)
-shape = SubResource("RectangleShape2D_d2p6t")
-
-[node name="bench4" type="CollisionShape2D" parent="BenchColliders"]
-position = Vector2(9231, 352)
-rotation = -3.14159
-scale = Vector2(6.00586, 3.75195)
-shape = SubResource("RectangleShape2D_d2p6t")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("12_ai0yg")]
 process_mode = 3
+
+[node name="WorldBoundryLeft" type="StaticBody2D" parent="."]
+position = Vector2(53, 449)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundryLeft"]
+shape = SubResource("WorldBoundaryShape2D_dfw18")
+
+[node name="WorldBoundryBottom" type="StaticBody2D" parent="."]
+position = Vector2(338, 554)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundryBottom"]
+shape = SubResource("WorldBoundaryShape2D_hf677")
+
+[node name="WorldBoundryTop2" type="StaticBody2D" parent="."]
+position = Vector2(338, 554)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundryTop2"]
+position = Vector2(7, -239)
+shape = SubResource("WorldBoundaryShape2D_k1qoi")
+
+[node name="LightPolesCollisions" type="StaticBody2D" parent="."]
+position = Vector2(139, 336)
+scale = Vector2(-0.830529, 2.23876)
+metadata/_edit_lock_ = true
+
+[node name="Pole1" type="CollisionShape2D" parent="LightPolesCollisions"]
+position = Vector2(0.602051, 0.670013)
+scale = Vector2(1.01214, 1)
+shape = SubResource("RectangleShape2D_xjju8")
+
+[node name="Pole2" type="CollisionShape2D" parent="LightPolesCollisions"]
+position = Vector2(-1861.46, 0)
+scale = Vector2(1.01214, 1)
+shape = SubResource("RectangleShape2D_xjju8")
+
+[node name="Pole3" type="CollisionShape2D" parent="LightPolesCollisions"]
+position = Vector2(-3591.69, 0.446686)
+scale = Vector2(1.01214, 1)
+shape = SubResource("RectangleShape2D_xjju8")
+
+[node name="Pole4" type="CollisionShape2D" parent="LightPolesCollisions"]
+position = Vector2(-4952.27, 0.446686)
+scale = Vector2(1.01214, 1)
+shape = SubResource("RectangleShape2D_xjju8")
+
+[node name="Pole5" type="CollisionShape2D" parent="LightPolesCollisions"]
+position = Vector2(-7371.21, 0.446686)
+scale = Vector2(1.01214, 1)
+shape = SubResource("RectangleShape2D_xjju8")
+
+[node name="Pole6" type="CollisionShape2D" parent="LightPolesCollisions"]
+position = Vector2(-9078.56, 0.446686)
+scale = Vector2(1.01214, 1)
+shape = SubResource("RectangleShape2D_xjju8")
+
+[node name="Pole7" type="CollisionShape2D" parent="LightPolesCollisions"]
+position = Vector2(-10783.5, 1.78671)
+scale = Vector2(1.01214, 1)
+shape = SubResource("RectangleShape2D_xjju8")
+
+[node name="Pole8" type="CollisionShape2D" parent="LightPolesCollisions"]
+position = Vector2(-11880.4, 0.446686)
+scale = Vector2(1.01214, 1)
+shape = SubResource("RectangleShape2D_xjju8")
+
+[node name="TreeCollisions" type="StaticBody2D" parent="."]
+position = Vector2(535, 334)
+scale = Vector2(-0.730912, 2.60733)
+metadata/_edit_lock_ = true
+
+[node name="Tree1" type="CollisionShape2D" parent="TreeCollisions"]
+shape = SubResource("CapsuleShape2D_53ner")
+
+[node name="Tree2" type="CollisionShape2D" parent="TreeCollisions"]
+position = Vector2(-273.631, 0.767059)
+shape = SubResource("CapsuleShape2D_53ner")
+
+[node name="Tree3" type="CollisionShape2D" parent="TreeCollisions"]
+position = Vector2(-2242.4, -0.767082)
+shape = SubResource("CapsuleShape2D_53ner")
+
+[node name="Tree4" type="CollisionShape2D" parent="TreeCollisions"]
+position = Vector2(-4373.99, -7.62939e-06)
+shape = SubResource("CapsuleShape2D_53ner")
+
+[node name="Tree5" type="CollisionShape2D" parent="TreeCollisions"]
+position = Vector2(-4564.16, -0.767082)
+shape = SubResource("CapsuleShape2D_53ner")
+
+[node name="Tree6" type="CollisionShape2D" parent="TreeCollisions"]
+position = Vector2(-4743.39, -0.383545)
+shape = SubResource("CapsuleShape2D_53ner")
+
+[node name="Tree7" type="CollisionShape2D" parent="TreeCollisions"]
+position = Vector2(-6736.79, 0.767067)
+shape = SubResource("CapsuleShape2D_53ner")
+
+[node name="Tree8" type="CollisionShape2D" parent="TreeCollisions"]
+position = Vector2(-8630.31, 0.767059)
+shape = SubResource("CapsuleShape2D_53ner")
+
+[node name="Tree9" type="CollisionShape2D" parent="TreeCollisions"]
+position = Vector2(-8787.65, 0.767059)
+shape = SubResource("CapsuleShape2D_53ner")
+
+[node name="Tree10" type="CollisionShape2D" parent="TreeCollisions"]
+position = Vector2(-10978.1, -0.383545)
+shape = SubResource("CapsuleShape2D_53ner")
+
+[node name="Tree11" type="CollisionShape2D" parent="TreeCollisions"]
+position = Vector2(-11172.3, -1.52588e-05)
+shape = SubResource("CapsuleShape2D_53ner")
+
+[node name="Tree12" type="CollisionShape2D" parent="TreeCollisions"]
+position = Vector2(-12717, -1.52588e-05)
+shape = SubResource("CapsuleShape2D_53ner")
+
+[node name="BenchCollisions" type="StaticBody2D" parent="."]
+position = Vector2(887, 352)
+metadata/_edit_lock_ = true
+
+[node name="Bench1" type="CollisionShape2D" parent="BenchCollisions"]
+position = Vector2(50, 0.5)
+shape = SubResource("RectangleShape2D_luyhr")
+
+[node name="Bench2" type="CollisionShape2D" parent="BenchCollisions"]
+position = Vector2(221, 0)
+shape = SubResource("RectangleShape2D_luyhr")
+
+[node name="Bench3" type="CollisionShape2D" parent="BenchCollisions"]
+position = Vector2(3213, 4)
+shape = SubResource("RectangleShape2D_luyhr")
+
+[node name="Bench4" type="CollisionShape2D" parent="BenchCollisions"]
+position = Vector2(8359, 2)
+shape = SubResource("RectangleShape2D_luyhr")
+
+[node name="Bench5" type="CollisionShape2D" parent="BenchCollisions"]
+position = Vector2(8582, 2)
+shape = SubResource("RectangleShape2D_luyhr")
+
+[node name="Bench6" type="CollisionShape2D" parent="BenchCollisions"]
+position = Vector2(8798, 3)
+shape = SubResource("RectangleShape2D_luyhr")
