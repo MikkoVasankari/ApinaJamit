@@ -73,8 +73,7 @@ rotation_smoothing_speed = 1.0
 position = Vector2(-1, 0)
 stream = ExtResource("10_ommsj")
 bus = &"Effects"
-<<<<<<< Updated upstream
-=======
+
 metadata/_edit_lock_ = true
 
 [node name="Bricks" type="Sprite2D" parent="."]
