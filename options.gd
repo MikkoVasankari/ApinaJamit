@@ -1,15 +1,17 @@
 extends Control
 
+@onready var exit_button = $VBoxContainer/Exit as Button
+
+
+signal exit_options_menu
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	exit_button.button_down.connect(_on_exit_button_pressed)
+	set_process(false)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_button_pressed():
-	get_tree().change_scene_to_file("res://menu.tscn")
+func _on_exit_button_pressed() -> void:
+	exit_options_menu.emit()
+	set_process(false)

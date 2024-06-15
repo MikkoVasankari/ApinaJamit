@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dyx250qan0oow"]
+[gd_scene load_steps=13 format=3 uid="uid://dyx250qan0oow"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody.gd" id="2_erlyp"]
 [ext_resource type="Texture2D" uid="uid://dtm7jf80lw6hn" path="res://assets/monke.png" id="2_siswo"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b200b73pq0ssw" path="res://assets/bricks_with_fence.png" id="8_opq8l"]
 [ext_resource type="Texture2D" uid="uid://dn8n0nasulq7a" path="res://assets/ferriswheelcarts.png" id="9_050vd"]
 [ext_resource type="AudioStream" uid="uid://bhutw2wtn6r6x" path="res://assets/Monkey - Sound Effect [_bmcwEK4a1A].mp3" id="10_ommsj"]
+[ext_resource type="PackedScene" uid="uid://bsne21eliuuvs" path="res://pause_menu.tscn" id="12_ai0yg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j73b5"]
 size = Vector2(94.125, 88)
@@ -69,5 +70,11 @@ rotation_smoothing_speed = 1.0
 [node name="Timer" type="Timer" parent="Monke/CharacterBody2D"]
 
 [node name="MonkeySound" type="AudioStreamPlayer2D" parent="Monke/CharacterBody2D"]
+position = Vector2(-1, 0)
 stream = ExtResource("10_ommsj")
 bus = &"Effects"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("12_ai0yg")]
+process_mode = 3
