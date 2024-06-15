@@ -66,7 +66,3 @@ metadata/_edit_lock_ = true
 [node name="Options" parent="." instance=ExtResource("9_eomwv")]
 visible = false
 layout_mode = 1
-
-[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

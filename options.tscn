@@ -109,5 +109,3 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Save and exit"
-
-[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_button_pressed"]
