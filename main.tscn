@@ -215,7 +215,6 @@ position = Vector2(9231, 352)
 rotation = -3.14159
 scale = Vector2(6.00586, 3.75195)
 shape = SubResource("RectangleShape2D_d2p6t")
->>>>>>> Stashed changes
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
