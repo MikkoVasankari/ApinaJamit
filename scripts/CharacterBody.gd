@@ -47,6 +47,7 @@ func collect_banana():
 	
 	if banana_count == 15:
 		office_door.visible = true
+		office_door.collision_mask = 1
 
 
 func _input(event):
@@ -201,3 +202,9 @@ func _on_banana_15_input_event(_viewport, _event, _shape_idx):
 		banana_15.visible = false
 		banana_15.collision_mask = 2
 		collect_banana()
+
+
+func _on_office_door_area_entered(_area):
+	TransitionScene.transition()
+	await TransitionScene.on_transition_finished
+	get_tree().change_scene_to_file("res://ending_scene.tscn")

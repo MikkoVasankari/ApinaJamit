@@ -231,24 +231,27 @@ metadata/_edit_lock_ = true
 
 [node name="Banana_collect_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_n76d0")
+volume_db = -4.0
 pitch_scale = 1.5
 bus = &"Effects"
 
-[node name="OfficeDoor" type="StaticBody2D" parent="."]
+[node name="OfficeDoor" type="Area2D" parent="."]
 visible = false
 position = Vector2(4654, 334)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OfficeDoor"]
-position = Vector2(0, -8.5)
-shape = SubResource("RectangleShape2D_18wg5")
+collision_layer = 3
+collision_mask = 2
 
 [node name="Opendoor" type="Sprite2D" parent="OfficeDoor"]
+light_mask = 3
+visibility_layer = 3
 texture_filter = 1
-position = Vector2(-1.43744, -4.5)
+position = Vector2(-1.4375, -4.5)
 scale = Vector2(1.009, 1)
 texture = ExtResource("13_fl3xw")
 
 [node name="Label" type="Label" parent="OfficeDoor"]
+light_mask = 3
+visibility_layer = 3
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -267,8 +270,14 @@ text = "enter
 office "
 horizontal_alignment = 1
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OfficeDoor"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_18wg5")
+
 [node name="Monke" type="Node2D" parent="."]
-position = Vector2(4661, 406)
+position = Vector2(4645, 424)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Monke" groups=["player"]]
 script = ExtResource("2_erlyp")
@@ -312,6 +321,19 @@ position = Vector2(-1, 24)
 rotation = 1.57725
 shape = SubResource("CapsuleShape2D_fxec4")
 
+[node name="Area2D" type="Area2D" parent="Monke/CharacterBody2D"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Monke/CharacterBody2D/Area2D"]
+position = Vector2(-1, 24)
+rotation = 1.57725
+shape = SubResource("CapsuleShape2D_fxec4")
+
+[node name="Frontbricks" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(5170, 297)
+texture = ExtResource("6_d8r4g")
+metadata/_edit_lock_ = true
+
 [node name="banana13" type="Area2D" parent="." groups=["banana"]]
 texture_filter = 1
 position = Vector2(9204, 555)
@@ -327,13 +349,7 @@ texture = ExtResource("4_40rbe")
 texture_filter = 1
 position = Vector2(-4.00049, 1)
 scale = Vector2(2.05849, 1.64532)
-polygon = PackedVector2Array(-5.22894, -7.39923, -5.71472, 10.2265, 8.37323, 9.61874, 8.37323, -7.39923)
-
-[node name="Frontbricks" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(5170, 297)
-texture = ExtResource("6_d8r4g")
-metadata/_edit_lock_ = true
+polygon = PackedVector2Array(-8.25781, -12.7635, -8.74365, 12.1557, 11.1738, 13.3712, 10.2021, -13.3713)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -363,11 +379,11 @@ metadata/_edit_lock_ = true
 shape = SubResource("WorldBoundaryShape2D_hf677")
 
 [node name="WorldBoundryTop2" type="StaticBody2D" parent="."]
-position = Vector2(338, 554)
+position = Vector2(311, 332)
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundryTop2"]
-position = Vector2(7, -239)
+position = Vector2(0, -2)
 shape = SubResource("WorldBoundaryShape2D_k1qoi")
 
 [node name="LightPolesCollisions" type="StaticBody2D" parent="."]
@@ -574,6 +590,7 @@ texture = ExtResource("5_vpd6w")
 [connection signal="input_event" from="banana7" to="Monke/CharacterBody2D" method="_on_banana_7_input_event"]
 [connection signal="input_event" from="banana11" to="Monke/CharacterBody2D" method="_on_banana_11_input_event"]
 [connection signal="input_event" from="banana15" to="Monke/CharacterBody2D" method="_on_banana_15_input_event"]
+[connection signal="area_entered" from="OfficeDoor" to="Monke/CharacterBody2D" method="_on_office_door_area_entered"]
 [connection signal="input_event" from="banana13" to="Monke/CharacterBody2D" method="_on_banana_13_input_event"]
 [connection signal="input_event" from="banana1" to="Monke/CharacterBody2D" method="_on_banana_1_input_event"]
 [connection signal="input_event" from="banana8" to="Monke/CharacterBody2D" method="_on_banana_8_input_event"]

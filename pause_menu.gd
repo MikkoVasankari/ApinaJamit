@@ -3,7 +3,6 @@ extends Control
 
 @onready var exit_button = $PauseMenuBox/Exit as Button
 @onready var pause_menu_box = $PauseMenuBox as BoxContainer
-@onready var sound_menu_box = $"Sound Menu" as BoxContainer
 
 var _is_paused:bool = false:
 	set(value):

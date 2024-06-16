@@ -13,11 +13,13 @@ config_version=5
 config/name="ApinaJamit"
 run/main_scene="res://menu.tscn"
 config/features=PackedStringArray("4.0", "C#", "GL Compatibility")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
 
 Music="*res://music.tscn"
+TransitionScene="*res://transition_scene.tscn"
 
 [display]
 
