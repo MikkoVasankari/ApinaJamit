@@ -87,6 +87,13 @@ position_smoothing_speed = 1.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 1.0
 
+[node name="Banana_count_label" type="Label" parent="Monke/CharacterBody2D/Camera2D"]
+offset_left = -78.0
+offset_top = -73.0
+offset_right = 80.0
+offset_bottom = -47.0
+text = "Bananas collected: 0"
+
 [node name="Timer" type="Timer" parent="Monke/CharacterBody2D"]
 
 [node name="MonkeySound" type="AudioStreamPlayer2D" parent="Monke/CharacterBody2D"]

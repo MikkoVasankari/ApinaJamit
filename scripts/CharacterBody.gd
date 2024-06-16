@@ -7,8 +7,8 @@ extends CharacterBody2D
 @onready var monkeySound = $MonkeySound
 @onready var banana_1 = $"../../banana1"
 @onready var banana_2 = $"../../banana2"
-
-var banana_count = 0
+@onready var banana_count_label = $Camera2D/Banana_count_label
+@export var banana_count = 0
 
 func _ready():
 	# Assuming the Timer node is a child of the current node
@@ -20,7 +20,7 @@ func reset_speed():
 func collect_banana():
 	banana_count += 1
 	var bananas_collected = "Bananas collected: %s"
-	print(bananas_collected % banana_count)
+	banana_count_label.text = bananas_collected % banana_count
 	
 
 func _input(event):
@@ -60,9 +60,11 @@ func _physics_process(delta):
 
 func _on_banana_1_body_entered(_body):
 	banana_1.visible = false
+	banana_1.collision_mask = 2
 	collect_banana()
 
 
 func _on_banana_2_body_entered(_body):
 	banana_2.visible = false
+	banana_2.collision_mask = 2
 	collect_banana()
