@@ -4,8 +4,9 @@ extends CharacterBody2D
 
 @onready var timer: Timer = $Timer
 @onready var Sprite = $AnimatedSprite2D
-@onready var monkeySound = $MonkeySound
+
 @onready var cycleSound = $CycleSound
+@onready var click_banana = $"../../Banana_collect_sound"
 
 @onready var banana_1 = $"../../banana1"
 @onready var banana_2 = $"../../banana2"
@@ -23,13 +24,14 @@ extends CharacterBody2D
 @onready var banana_14 = $"../../banana14"
 @onready var banana_15 = $"../../banana15"
 
+@onready var office_door = $"../../OfficeDoor"
+
 @onready var banana_count_label = $"../../Banana_count_label"
 
 @export var banana_count = 0
 
-	
+
 func _ready():
-	# Assuming the Timer node is a child of the current node
 	timer.one_shot = true
 
 
@@ -41,6 +43,10 @@ func collect_banana():
 	banana_count += 1
 	var bananas_collected = "%s / 15"
 	banana_count_label.text = bananas_collected % banana_count
+	click_banana.play(0)
+	
+	if banana_count == 15:
+		office_door.visible = true
 
 
 func _input(event):
@@ -53,11 +59,7 @@ func _input(event):
 			Sprite.set_rotation(0)
 			reset_speed()
 			
-	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_E:
-			monkeySound.play(0)
-
-
+			
 func _physics_process(delta):
 	
 	var cycling = false

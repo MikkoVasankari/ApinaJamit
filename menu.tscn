@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cupf2emkv30cf"]
+[gd_scene load_steps=11 format=3 uid="uid://cupf2emkv30cf"]
 
 [ext_resource type="Texture2D" uid="uid://b1etugf6dj58n" path="res://assets/menu/menuscreen.png" id="1_cu46l"]
 [ext_resource type="Script" path="res://menu.gd" id="1_j66qw"]
+[ext_resource type="AudioStream" uid="uid://dhw0xwrlmljqy" path="res://assets/bananas.mp3" id="2_oks8i"]
 [ext_resource type="Texture2D" uid="uid://c47on6hranslc" path="res://assets/menu/playbutton.png" id="2_wd0s5"]
 [ext_resource type="Texture2D" uid="uid://7p21hiqiadfg" path="res://assets/menu/playbutton2.png" id="3_12y74"]
 [ext_resource type="Texture2D" uid="uid://cfuy4y0mwwrg7" path="res://assets/menu/optionsbutton.png" id="4_few8c"]
@@ -18,6 +19,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_j66qw")
+
+[node name="Game_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_oks8i")
+volume_db = -6.0
+autoplay = true
+bus = &"Music"
 
 [node name="Menuscreen" type="Sprite2D" parent="."]
 position = Vector2(973, 529)
