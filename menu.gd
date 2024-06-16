@@ -11,6 +11,15 @@ extends Control
 
 func _ready():
 	handle_connecting_signals()
+	
+	var volume_default = -20
+	var bus_index = AudioServer.get_bus_index("Master")
+	
+	AudioServer.set_bus_volume_db(
+		bus_index,
+		volume_default
+		#linear_to_db(value)
+	)
 
 
 func _on_play_button_pressed() -> void:

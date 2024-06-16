@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://w3q5m7w4upsh"]
+[gd_scene load_steps=5 format=3 uid="uid://w3q5m7w4upsh"]
 
 [ext_resource type="Texture2D" uid="uid://cqx67krpafcj8" path="res://assets/menu/menuscreendark.png" id="1_evk3s"]
 [ext_resource type="Script" path="res://options.gd" id="1_wd5pn"]
+[ext_resource type="AudioStream" uid="uid://dcnuymd34e3n8" path="res://assets/click.mp3" id="3_r8mjq"]
 [ext_resource type="Script" path="res://volume.gd" id="3_vf8ge"]
 
 [node name="Options" type="Control"]
@@ -20,6 +21,11 @@ position = Vector2(952, 538)
 scale = Vector2(0.855556, 0.855556)
 texture = ExtResource("1_evk3s")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_r8mjq")
+pitch_scale = 1.5
+bus = &"Effects"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -27,13 +33,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -607.0
-offset_top = -502.0
-offset_right = -131.0
-offset_bottom = -100.0
+offset_left = -240.0
+offset_top = -315.0
+offset_right = 2.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2, 2)
 theme_override_constants/separation = 40
 
 [node name="Master" type="HSlider" parent="VBoxContainer"]
@@ -43,8 +49,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
 theme_override_constants/grabber_offset = 0
+min_value = -30.0
+max_value = 10.0
 step = 0.001
-value = 100.0
+value = -20.0
 script = ExtResource("3_vf8ge")
 audio_bus = "Master"
 
@@ -67,8 +75,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
 theme_override_constants/grabber_offset = 0
+min_value = -30.0
+max_value = 10.0
 step = 0.001
-value = 100.0
 script = ExtResource("3_vf8ge")
 audio_bus = "Music"
 
@@ -91,7 +100,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
 theme_override_constants/grabber_offset = 0
-value = 100.0
+min_value = -30.0
+max_value = 10.0
 script = ExtResource("3_vf8ge")
 audio_bus = "Effects"
 

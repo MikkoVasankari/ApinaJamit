@@ -1,9 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://dyx250qan0oow"]
+[gd_scene load_steps=25 format=3 uid="uid://dyx250qan0oow"]
 
 [ext_resource type="Texture2D" uid="uid://c2cpqpr278bjw" path="res://assets/background.png" id="1_piprm"]
 [ext_resource type="Script" path="res://scripts/CharacterBody.gd" id="2_erlyp"]
 [ext_resource type="Texture2D" uid="uid://c2lsd2tpkgxkd" path="res://assets/ferris_wheel_carts.png" id="2_l5kar"]
-[ext_resource type="AudioStream" uid="uid://dhw0xwrlmljqy" path="res://assets/bananas.mp3" id="2_pm2k1"]
 [ext_resource type="Texture2D" uid="uid://dtm7jf80lw6hn" path="res://assets/monke.png" id="2_siswo"]
 [ext_resource type="Texture2D" uid="uid://dythivlv6in3w" path="res://assets/road.png" id="3_y3idh"]
 [ext_resource type="Texture2D" uid="uid://bttldn3cxuiih" path="res://assets/banana_right.png" id="4_40rbe"]
@@ -58,11 +57,6 @@ size = Vector2(13.2446, 28.1406)
 size = Vector2(108, 23)
 
 [node name="Main" type="Node"]
-
-[node name="Game_music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_pm2k1")
-volume_db = -6.0
-autoplay = true
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -237,7 +231,6 @@ metadata/_edit_lock_ = true
 
 [node name="Banana_collect_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_n76d0")
-volume_db = -4.0
 pitch_scale = 1.5
 bus = &"Effects"
 

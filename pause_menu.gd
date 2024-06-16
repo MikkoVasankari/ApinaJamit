@@ -1,7 +1,6 @@
 class_name pause_menu
 extends Control
 
-@onready var options_button = $PauseMenuBox/Options as Button
 @onready var exit_button = $PauseMenuBox/Exit as Button
 @onready var pause_menu_box = $PauseMenuBox as BoxContainer
 @onready var sound_menu_box = $"Sound Menu" as BoxContainer
@@ -22,16 +21,9 @@ func _on_resume_pressed():
 	_is_paused = false
 
 
-func _on_options_pressed():
-	pause_menu_box.visible = false
-	sound_menu_box.visible = true
-	
-	
 func _on_exit_pressed():
 	get_tree().quit()
 
 
 func _ready():
-	options_button.button_down.connect(_on_options_pressed)
 	exit_button.button_down.connect(_on_exit_pressed)
-
