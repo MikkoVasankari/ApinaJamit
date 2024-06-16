@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dyx250qan0oow"]
+[gd_scene load_steps=20 format=3 uid="uid://dyx250qan0oow"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody.gd" id="2_erlyp"]
 [ext_resource type="Texture2D" uid="uid://dtm7jf80lw6hn" path="res://assets/monke.png" id="2_siswo"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dn8n0nasulq7a" path="res://assets/ferriswheelcarts.png" id="9_050vd"]
 [ext_resource type="AudioStream" uid="uid://bhutw2wtn6r6x" path="res://assets/Monkey - Sound Effect [_bmcwEK4a1A].mp3" id="10_ommsj"]
 [ext_resource type="PackedScene" uid="uid://bsne21eliuuvs" path="res://pause_menu.tscn" id="12_ai0yg"]
+[ext_resource type="Texture2D" uid="uid://d1n462320r6tu" path="res://icon.svg" id="12_x6qke"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fxec4"]
 radius = 14.0191
@@ -70,18 +71,13 @@ metadata/_edit_lock_ = true
 position = Vector2(510, 405)
 metadata/_edit_lock_ = true
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Monke"]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Monke" groups=["player"]]
 script = ExtResource("2_erlyp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Monke/CharacterBody2D"]
 position = Vector2(0, -1)
 scale = Vector2(0.485156, 0.506098)
 texture = ExtResource("2_siswo")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Monke/CharacterBody2D"]
-position = Vector2(-1, 24)
-rotation = 1.57725
-shape = SubResource("CapsuleShape2D_fxec4")
 
 [node name="Camera2D" type="Camera2D" parent="Monke/CharacterBody2D"]
 zoom = Vector2(2.5, 2.5)
@@ -97,6 +93,18 @@ rotation_smoothing_speed = 1.0
 position = Vector2(-1, 0)
 stream = ExtResource("10_ommsj")
 bus = &"Effects"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Monke/CharacterBody2D"]
+position = Vector2(-1, 24)
+rotation = 1.57725
+shape = SubResource("CapsuleShape2D_fxec4")
+
+[node name="Area2D" type="Area2D" parent="Monke/CharacterBody2D"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Monke/CharacterBody2D/Area2D"]
+position = Vector2(-1, 24)
+rotation = 1.57725
+shape = SubResource("CapsuleShape2D_fxec4")
 
 [node name="Bricks" type="Sprite2D" parent="."]
 position = Vector2(5740, 3)
@@ -254,3 +262,32 @@ shape = SubResource("RectangleShape2D_luyhr")
 [node name="Bench6" type="CollisionShape2D" parent="BenchCollisions"]
 position = Vector2(8798, 3)
 shape = SubResource("RectangleShape2D_luyhr")
+
+[node name="banana1" type="Area2D" parent="." groups=["banana"]]
+position = Vector2(1282, 366)
+
+[node name="Sprite2D" type="Sprite2D" parent="banana1"]
+position = Vector2(-1, 1)
+scale = Vector2(0.21875, 0.21875)
+texture = ExtResource("12_x6qke")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="banana1"]
+position = Vector2(1, -1)
+scale = Vector2(2.27083, 1.71875)
+polygon = PackedVector2Array(-6.60547, -6.98181, -6.60553, 8.72728, 5.72473, 8.72728, 5.28442, -6.98181)
+
+[node name="banana2" type="Area2D" parent="." groups=["banana"]]
+position = Vector2(774, 424)
+
+[node name="Sprite2D" type="Sprite2D" parent="banana2"]
+position = Vector2(-1, 1)
+scale = Vector2(0.21875, 0.21875)
+texture = ExtResource("12_x6qke")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="banana2"]
+position = Vector2(-4.84998, -1.00006)
+scale = Vector2(1.93403, 1.71875)
+polygon = PackedVector2Array(-4.73105, -6.40001, -4.73105, 8.72726, 8.71237, 8.72726, 8.71237, -6.40001)
+
+[connection signal="body_entered" from="banana1" to="Monke/CharacterBody2D" method="_on_banana_1_body_entered"]
+[connection signal="body_entered" from="banana2" to="Monke/CharacterBody2D" method="_on_banana_2_body_entered"]
