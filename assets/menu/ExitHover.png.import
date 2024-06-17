@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7p21hiqiadfg"
-path="res://.godot/imported/playbutton2.png-f7d41729cd1226833555c2cf2b6b640e.ctex"
+uid="uid://pr8uaqgchc"
+path="res://.godot/imported/ExitHover.png-436d7e076a9b1afde08568d06524b529.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/playbutton2.png"
-dest_files=["res://.godot/imported/playbutton2.png-f7d41729cd1226833555c2cf2b6b640e.ctex"]
+source_file="res://assets/menu/ExitHover.png"
+dest_files=["res://.godot/imported/ExitHover.png-436d7e076a9b1afde08568d06524b529.ctex"]
 
 [params]
 

@@ -59,8 +59,8 @@ func _input(event):
 			await timer.timeout
 			Sprite.set_rotation(0)
 			reset_speed()
-			
-			
+
+
 func _physics_process(delta):
 	
 	var cycling = false

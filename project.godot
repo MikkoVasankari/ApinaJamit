@@ -10,11 +10,11 @@ config_version=5
 
 [application]
 
-config/name="ApinaJamit"
+config/name="MonkisLostLunch"
 run/main_scene="res://menu.tscn"
-config/features=PackedStringArray("4.0", "C#", "GL Compatibility")
+config/features=PackedStringArray("4.0", "GL Compatibility")
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
 [autoload]
 

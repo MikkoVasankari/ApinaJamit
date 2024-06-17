@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsne21eliuuvs"]
+[gd_scene load_steps=3 format=3 uid="uid://bsne21eliuuvs"]
 
 [ext_resource type="Script" path="res://pause_menu.gd" id="1_0e1j1"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dw8d"]
+bg_color = Color(0.976471, 0.52549, 0.235294, 0.776471)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [node name="PauseMenu" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,30 +18,36 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0e1j1")
 
-[node name="PauseMenuBox" type="VBoxContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -184.0
-offset_top = -160.0
-offset_right = 184.0
-offset_bottom = 160.0
+offset_left = -162.5
+offset_top = -115.5
+offset_right = 162.5
+offset_bottom = 115.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7dw8d")
+
+[node name="PauseMenuBox" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="Resume" type="Button" parent="PauseMenuBox"]
+[node name="Resume" type="Button" parent="PanelContainer/PauseMenuBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Resume"
 
-[node name="Exit" type="Button" parent="PauseMenuBox"]
+[node name="Exit" type="Button" parent="PanelContainer/PauseMenuBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Exit game"
 
-[connection signal="pressed" from="PauseMenuBox/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="PauseMenuBox/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="PanelContainer/PauseMenuBox/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/PauseMenuBox/Exit" to="." method="_on_exit_pressed"]

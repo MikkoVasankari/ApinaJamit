@@ -18,7 +18,6 @@ func _ready():
 	AudioServer.set_bus_volume_db(
 		bus_index,
 		volume_default
-		#linear_to_db(value)
 	)
 
 
@@ -28,6 +27,7 @@ func _on_play_button_pressed() -> void:
 
 func _on_options_button_pressed() -> void:
 	vbox_container.visible = false
+	$Title.visible = false
 	options_menu.set_process(true)
 	options_menu.visible = true
 
@@ -38,6 +38,7 @@ func _on_exit_button_pressed() -> void:
 
 func _on_exit_menu_pressed() -> void:
 	vbox_container.visible = true
+	$Title.visible = true
 	options_menu.visible = false
 
 

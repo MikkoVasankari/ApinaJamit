@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://dyx250qan0oow"]
+[gd_scene load_steps=26 format=3 uid="uid://dyx250qan0oow"]
 
 [ext_resource type="Texture2D" uid="uid://c2cpqpr278bjw" path="res://assets/background.png" id="1_piprm"]
+[ext_resource type="Texture2D" uid="uid://b4igfibt6fxvu" path="res://assets/controls.png" id="2_684mk"]
 [ext_resource type="Script" path="res://scripts/CharacterBody.gd" id="2_erlyp"]
 [ext_resource type="Texture2D" uid="uid://c2lsd2tpkgxkd" path="res://assets/ferris_wheel_carts.png" id="2_l5kar"]
 [ext_resource type="Texture2D" uid="uid://dtm7jf80lw6hn" path="res://assets/monke.png" id="2_siswo"]
@@ -63,6 +64,11 @@ texture_filter = 1
 position = Vector2(5895, -32)
 texture = ExtResource("1_piprm")
 metadata/_edit_lock_ = true
+
+[node name="Controls" type="Sprite2D" parent="."]
+position = Vector2(4453, 273)
+scale = Vector2(0.355121, 0.355121)
+texture = ExtResource("2_684mk")
 
 [node name="banana6" type="Area2D" parent="." groups=["banana"]]
 position = Vector2(2772, 407)
@@ -276,8 +282,95 @@ visibility_layer = 3
 position = Vector2(0, -8.5)
 shape = SubResource("RectangleShape2D_18wg5")
 
+[node name="banana1" type="Area2D" parent="." groups=["banana"]]
+texture_filter = 1
+position = Vector2(100, 348)
+metadata/_edit_lock_ = true
+
+[node name="BananaLeft" type="Sprite2D" parent="banana1"]
+position = Vector2(5, 14)
+texture = ExtResource("5_vpd6w")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="banana1"]
+position = Vector2(13, 12)
+scale = Vector2(4.94826, 2.81982)
+polygon = PackedVector2Array(-3.63764, -2.12779, -3.63764, 3.90096, 0.606274, 3.90096, 0.404182, -2.12779)
+
+[node name="banana13" type="Area2D" parent="." groups=["banana"]]
+texture_filter = 1
+position = Vector2(9204, 555)
+metadata/_edit_lock_ = true
+
+[node name="BananaRight" type="Sprite2D" parent="banana13"]
+texture_filter = 1
+position = Vector2(-0.999023, 3.00006)
+scale = Vector2(0.9, 1.1)
+texture = ExtResource("4_40rbe")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="banana13"]
+texture_filter = 1
+position = Vector2(-4.00049, 1)
+scale = Vector2(2.05849, 1.64532)
+polygon = PackedVector2Array(-8.25781, -12.7635, -8.74365, 12.1557, 11.1738, 13.3712, 10.2021, -13.3713)
+
+[node name="banana10" type="Area2D" parent="." groups=["banana"]]
+position = Vector2(5834, 307)
+metadata/_edit_lock_ = true
+
+[node name="BananaRight2" type="Sprite2D" parent="banana10"]
+texture_filter = 1
+position = Vector2(-57, 21)
+texture = ExtResource("4_40rbe")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="banana10"]
+position = Vector2(-56.9998, 18)
+scale = Vector2(2.05849, 1.64532)
+polygon = PackedVector2Array(-3.88623, -1.82335, -4.85791, 6.07784, 4.37231, 6.07784, 4.37231, -3.64671)
+
+[node name="banana12" type="Area2D" parent="." groups=["banana"]]
+position = Vector2(7638, 151)
+metadata/_edit_lock_ = true
+
+[node name="BananaRight" type="Sprite2D" parent="banana12"]
+texture_filter = 1
+position = Vector2(0, 1)
+texture = ExtResource("4_40rbe")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="banana12"]
+texture_filter = 1
+position = Vector2(-2.53638, -1.12592)
+scale = Vector2(2.05849, 1.64532)
+polygon = PackedVector2Array(-5.08301, -6.6091, -5.56885, 7.36994, 6.57593, 7.97773, 6.57593, -7.21689)
+
+[node name="banana14" type="Area2D" parent="." groups=["banana"]]
+position = Vector2(9274, 342)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="banana14"]
+position = Vector2(-2.53613, -1.12592)
+scale = Vector2(2.05849, 1.64532)
+polygon = PackedVector2Array(-2.6543, -1.74683, -5.0835, 9.1933, 8.37323, 9.61874, 7.06152, -1.74683)
+
+[node name="BananaLeft" type="Sprite2D" parent="banana14"]
+position = Vector2(1, 6)
+texture = ExtResource("5_vpd6w")
+
+[node name="banana8" type="Area2D" parent="." groups=["banana"]]
+position = Vector2(5658, 410)
+metadata/_edit_lock_ = true
+
+[node name="BananaLeft" type="Sprite2D" parent="banana8"]
+texture_filter = 1
+position = Vector2(99, -84)
+texture = ExtResource("5_vpd6w")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="banana8"]
+position = Vector2(93.0002, -87)
+scale = Vector2(2.05849, 1.64532)
+polygon = PackedVector2Array(-2.42896, -4.86227, -2.91455, 6.68564, 7.28711, 6.68564, 8.25854, -3.03893)
+
 [node name="Monke" type="Node2D" parent="."]
-position = Vector2(4645, 424)
+position = Vector2(4419, 401)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Monke" groups=["player"]]
 script = ExtResource("2_erlyp")
@@ -303,7 +396,7 @@ limit_right = 10200
 limit_bottom = 650
 limit_smoothed = true
 position_smoothing_enabled = true
-position_smoothing_speed = 1.0
+position_smoothing_speed = 2.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 1.0
 
@@ -312,7 +405,7 @@ rotation_smoothing_speed = 1.0
 [node name="CycleSound" type="AudioStreamPlayer2D" parent="Monke/CharacterBody2D"]
 position = Vector2(-1, 0)
 stream = ExtResource("10_y5pjr")
-volume_db = -10.0
+volume_db = -2.0
 pitch_scale = 1.3
 bus = &"Effects"
 
@@ -327,23 +420,6 @@ shape = SubResource("CapsuleShape2D_fxec4")
 position = Vector2(-1, 24)
 rotation = 1.57725
 shape = SubResource("CapsuleShape2D_fxec4")
-
-[node name="banana13" type="Area2D" parent="." groups=["banana"]]
-texture_filter = 1
-position = Vector2(9204, 555)
-metadata/_edit_lock_ = true
-
-[node name="BananaRight" type="Sprite2D" parent="banana13"]
-texture_filter = 1
-position = Vector2(-0.999023, 3.00006)
-scale = Vector2(0.9, 1.1)
-texture = ExtResource("4_40rbe")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="banana13"]
-texture_filter = 1
-position = Vector2(-4.00049, 1)
-scale = Vector2(2.05849, 1.64532)
-polygon = PackedVector2Array(-8.25781, -12.7635, -8.74365, 12.1557, 11.1738, 13.3712, 10.2021, -13.3713)
 
 [node name="Frontbricks" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -511,76 +587,6 @@ shape = SubResource("RectangleShape2D_luyhr")
 position = Vector2(8798, 3)
 shape = SubResource("RectangleShape2D_luyhr")
 
-[node name="banana1" type="Area2D" parent="." groups=["banana"]]
-texture_filter = 1
-position = Vector2(100, 348)
-metadata/_edit_lock_ = true
-
-[node name="BananaLeft" type="Sprite2D" parent="banana1"]
-position = Vector2(5, 14)
-texture = ExtResource("5_vpd6w")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="banana1"]
-position = Vector2(13, 12)
-scale = Vector2(4.94826, 2.81982)
-polygon = PackedVector2Array(-3.63764, -2.12779, -3.63764, 3.90096, 0.606274, 3.90096, 0.404182, -2.12779)
-
-[node name="banana8" type="Area2D" parent="." groups=["banana"]]
-position = Vector2(5658, 410)
-metadata/_edit_lock_ = true
-
-[node name="BananaLeft" type="Sprite2D" parent="banana8"]
-texture_filter = 1
-position = Vector2(99, -84)
-texture = ExtResource("5_vpd6w")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="banana8"]
-position = Vector2(93.0002, -87)
-scale = Vector2(2.05849, 1.64532)
-polygon = PackedVector2Array(-2.42896, -4.86227, -2.91455, 6.68564, 7.28711, 6.68564, 8.25854, -3.03893)
-
-[node name="banana10" type="Area2D" parent="." groups=["banana"]]
-position = Vector2(5834, 307)
-metadata/_edit_lock_ = true
-
-[node name="BananaRight2" type="Sprite2D" parent="banana10"]
-texture_filter = 1
-position = Vector2(-57, 21)
-texture = ExtResource("4_40rbe")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="banana10"]
-position = Vector2(-56.9998, 18)
-scale = Vector2(2.05849, 1.64532)
-polygon = PackedVector2Array(-3.88623, -1.82335, -4.85791, 6.07784, 4.37231, 6.07784, 4.37231, -3.64671)
-
-[node name="banana12" type="Area2D" parent="." groups=["banana"]]
-position = Vector2(7638, 151)
-metadata/_edit_lock_ = true
-
-[node name="BananaRight" type="Sprite2D" parent="banana12"]
-texture_filter = 1
-position = Vector2(0, 1)
-texture = ExtResource("4_40rbe")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="banana12"]
-texture_filter = 1
-position = Vector2(-2.53638, -1.12592)
-scale = Vector2(2.05849, 1.64532)
-polygon = PackedVector2Array(-5.08301, -6.6091, -5.56885, 7.36994, 6.57593, 7.97773, 6.57593, -7.21689)
-
-[node name="banana14" type="Area2D" parent="." groups=["banana"]]
-position = Vector2(9274, 342)
-metadata/_edit_lock_ = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="banana14"]
-position = Vector2(-2.53613, -1.12592)
-scale = Vector2(2.05849, 1.64532)
-polygon = PackedVector2Array(-2.6543, -1.74683, -5.0835, 9.1933, 8.37323, 9.61874, 7.06152, -1.74683)
-
-[node name="BananaLeft" type="Sprite2D" parent="banana14"]
-position = Vector2(1, 6)
-texture = ExtResource("5_vpd6w")
-
 [connection signal="input_event" from="banana6" to="Monke/CharacterBody2D" method="_on_banana_6_input_event"]
 [connection signal="input_event" from="banana9" to="Monke/CharacterBody2D" method="_on_banana_9_input_event"]
 [connection signal="input_event" from="banana5" to="Monke/CharacterBody2D" method="_on_banana_5_input_event"]
@@ -591,9 +597,9 @@ texture = ExtResource("5_vpd6w")
 [connection signal="input_event" from="banana11" to="Monke/CharacterBody2D" method="_on_banana_11_input_event"]
 [connection signal="input_event" from="banana15" to="Monke/CharacterBody2D" method="_on_banana_15_input_event"]
 [connection signal="area_entered" from="OfficeDoor" to="Monke/CharacterBody2D" method="_on_office_door_area_entered"]
-[connection signal="input_event" from="banana13" to="Monke/CharacterBody2D" method="_on_banana_13_input_event"]
 [connection signal="input_event" from="banana1" to="Monke/CharacterBody2D" method="_on_banana_1_input_event"]
-[connection signal="input_event" from="banana8" to="Monke/CharacterBody2D" method="_on_banana_8_input_event"]
+[connection signal="input_event" from="banana13" to="Monke/CharacterBody2D" method="_on_banana_13_input_event"]
 [connection signal="input_event" from="banana10" to="Monke/CharacterBody2D" method="_on_banana_10_input_event"]
 [connection signal="input_event" from="banana12" to="Monke/CharacterBody2D" method="_on_banana_12_input_event"]
 [connection signal="input_event" from="banana14" to="Monke/CharacterBody2D" method="_on_banana_14_input_event"]
+[connection signal="input_event" from="banana8" to="Monke/CharacterBody2D" method="_on_banana_8_input_event"]

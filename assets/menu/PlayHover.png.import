@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfuy4y0mwwrg7"
-path="res://.godot/imported/optionsbutton.png-d561d55cff4b3190389fbf24ec24a806.ctex"
+uid="uid://s5r6bgasu3ru"
+path="res://.godot/imported/PlayHover.png-64e7f99d06e93d22e30bab89e2091f0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/optionsbutton.png"
-dest_files=["res://.godot/imported/optionsbutton.png-d561d55cff4b3190389fbf24ec24a806.ctex"]
+source_file="res://assets/menu/PlayHover.png"
+dest_files=["res://.godot/imported/PlayHover.png-64e7f99d06e93d22e30bab89e2091f0f.ctex"]
 
 [params]
 

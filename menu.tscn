@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://cupf2emkv30cf"]
+[gd_scene load_steps=11 format=3 uid="uid://cupf2emkv30cf"]
 
 [ext_resource type="Texture2D" uid="uid://b1etugf6dj58n" path="res://assets/menu/menuscreen.png" id="1_cu46l"]
 [ext_resource type="Script" path="res://menu.gd" id="1_j66qw"]
-[ext_resource type="Texture2D" uid="uid://c47on6hranslc" path="res://assets/menu/playbutton.png" id="2_wd0s5"]
-[ext_resource type="Texture2D" uid="uid://7p21hiqiadfg" path="res://assets/menu/playbutton2.png" id="3_12y74"]
-[ext_resource type="Texture2D" uid="uid://cfuy4y0mwwrg7" path="res://assets/menu/optionsbutton.png" id="4_few8c"]
-[ext_resource type="Texture2D" uid="uid://014etxip7fv4" path="res://assets/menu/optionsbutton2.png" id="5_ion0s"]
-[ext_resource type="Texture2D" uid="uid://drayqteywdxku" path="res://assets/menu/exitbutton.png" id="6_ty8wf"]
-[ext_resource type="Texture2D" uid="uid://cn287xndfpxk5" path="res://assets/menu/exitbutton2.png" id="7_inmnk"]
+[ext_resource type="Texture2D" uid="uid://bop62xie32ltu" path="res://assets/menu/PlayNormal.png" id="3_i1o55"]
+[ext_resource type="Texture2D" uid="uid://s5r6bgasu3ru" path="res://assets/menu/PlayHover.png" id="4_dflgw"]
+[ext_resource type="Texture2D" uid="uid://8wnoi3500jg0" path="res://assets/menu/OptionsNormal.png" id="5_jiffu"]
+[ext_resource type="Texture2D" uid="uid://db0aovdbf7wla" path="res://assets/menu/OptionsHover.png" id="6_c574m"]
+[ext_resource type="Texture2D" uid="uid://bjid1hcecx80r" path="res://assets/menu/ExitNormal.png" id="7_xbowb"]
+[ext_resource type="Texture2D" uid="uid://pr8uaqgchc" path="res://assets/menu/ExitHover.png" id="8_mi7mu"]
 [ext_resource type="PackedScene" uid="uid://w3q5m7w4upsh" path="res://options.tscn" id="9_eomwv"]
+[ext_resource type="Texture2D" uid="uid://bta2jtnxqspu5" path="res://assets/menu/title.png" id="10_dikod"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -32,37 +33,40 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -184.0
-offset_top = -265.0
-offset_right = 184.0
-offset_bottom = 265.0
+offset_left = -209.0
+offset_top = -20.0001
+offset_right = 307.0
+offset_bottom = 567.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.8, 0.8)
 theme_override_constants/separation = 40
 alignment = 1
-metadata/_edit_lock_ = true
 
 [node name="PlayButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 6
-texture_normal = ExtResource("2_wd0s5")
-texture_hover = ExtResource("3_12y74")
-metadata/_edit_lock_ = true
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_i1o55")
+texture_hover = ExtResource("4_dflgw")
 
 [node name="OptionsButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-texture_normal = ExtResource("4_few8c")
-texture_hover = ExtResource("5_ion0s")
-metadata/_edit_lock_ = true
+texture_normal = ExtResource("5_jiffu")
+texture_hover = ExtResource("6_c574m")
 
 [node name="ExitButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 6
-texture_normal = ExtResource("6_ty8wf")
-texture_hover = ExtResource("7_inmnk")
-metadata/_edit_lock_ = true
+texture_normal = ExtResource("7_xbowb")
+texture_hover = ExtResource("8_mi7mu")
 
 [node name="Options" parent="." instance=ExtResource("9_eomwv")]
 visible = false
 layout_mode = 1
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(994, 260)
+texture = ExtResource("10_dikod")

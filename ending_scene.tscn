@@ -1,10 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://bs24qqwgdop0u"]
 
-[ext_resource type="Texture2D" uid="uid://d1n462320r6tu" path="res://icon.svg" id="1_drulx"]
+[ext_resource type="Texture2D" uid="uid://dolilfg5i5exy" path="res://assets/endscreen.png" id="1_onrjr"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(907, 521)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, -1)
-texture = ExtResource("1_drulx")
+[node name="Endscreen" type="Sprite2D" parent="."]
+position = Vector2(52, 16)
+scale = Vector2(0.748264, 0.748264)
+texture = ExtResource("1_onrjr")
